@@ -6,3 +6,14 @@
 - [Wave Generator](https://getwaves.io/)
 - [Blob Maker](https://www.blobmaker.app/)
 - [svg tutorial](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)
+
+
+### Resources
+### ML 
+possible classiffication models
+
+- [pytorch-plants](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-plants.md)
+
+
+### Designs
+- [Figma](https://figmatemplate.com/plant-app-ui-design-figma-template/)
