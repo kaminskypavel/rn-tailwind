@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "tw:generate": "npx trnc-create-styles"
   },
   "jest": {
     "preset": "jest-expo"
@@ -28,11 +29,14 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-reanimated": "~2.2.0",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
-    "react-native-web": "~0.13.12"
+    "react-native-svg": "12.1.1",
+    "react-native-web": "~0.13.12",
+    "tailwind-react-native-classnames": "^1.4.2",
+    "tailwind-rn": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
