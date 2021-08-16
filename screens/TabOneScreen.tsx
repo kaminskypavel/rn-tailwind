@@ -1,13 +1,9 @@
-import React, { useCallback, useMemo, useRef } from "react";
-import { Image, Text, Pressable, View, StyleSheet } from "react-native";
-import { Path, Svg } from "react-native-svg";
-import {
-  BottomSheetModal,
-  BottomSheetModalProvider,
-  useBottomSheetModal,
-} from "@gorhom/bottom-sheet";
+import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { Image, Pressable, Text, View } from 'react-native';
+import { Path, Svg } from 'react-native-svg';
 
-import tw from "./../lib/tailwind";
+import tw from './../lib/tailwind';
 
 export default function TabOneScreen() {
   // ref

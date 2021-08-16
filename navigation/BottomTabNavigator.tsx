@@ -7,12 +7,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
-
+import { View } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+import tw from "./../lib/tailwind";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -21,24 +22,24 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Details"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name="TabOne"
+        name="Details"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="flower-outline" color={color} />
           ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Camera"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
+            <TabBarIcon name="camera-outline" color={color} />
           ),
         }}
       />
