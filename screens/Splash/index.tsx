@@ -6,24 +6,25 @@ import tw from "../../lib/tailwind";
 
 import { RootStackParamList } from "../../types";
 import { useEffect, useState } from "react";
-import { hide } from "expo-splash-screen";
-
+import * as screens from "./../../constants/screen";
 type Props = StackScreenProps<RootStackParamList, "SplashScreen">;
+import * as Device from "expo-device";
 
+const TIMEOUT = 1000;
 //https://lottiefiles.com/40864-the-awkward-monster
-const SplashScreen: React.FC<Props> = ({ navigation, route }) => {
+const SplashScreen: React.FC<Props> = ({ navigation }) => {
   const [isHidden, setIsHidden] = useState(false);
   const hide = () => {
     if (!isHidden) {
       setIsHidden(true);
-      navigation.navigate("Root");
+      navigation.replace(screens.MAIN);
     }
   };
   useEffect(() => {
     setTimeout(() => {
-      console.log("Splash::timeout");
+      console.log("Splash::timeout", Device.osName);
       hide();
-    }, 5000);
+    }, TIMEOUT);
   });
 
   return (
@@ -34,7 +35,7 @@ const SplashScreen: React.FC<Props> = ({ navigation, route }) => {
         autoSize={false}
         source={require("./monster.json")}
         onAnimationFinish={() => {
-          console.log("Splash::onAnimationFinish");
+          console.log("Splash::onAnimationFinish", Device.osName);
           hide();
         }}
       />

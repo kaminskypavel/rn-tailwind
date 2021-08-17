@@ -1,11 +1,18 @@
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useMemo, useRef } from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
 import { Path, Svg } from 'react-native-svg';
 
+import * as screen from './../constants/screen';
 import tw from './../lib/tailwind';
 
-export default function TabOneScreen() {
+export default function TabOneScreen({navigation}:any) {
+  const handleNavigatePress = () => {
+    // const navigation = useNavigation();
+    navigation.navigate(screen.NOTFOUND);
+  };
+
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -13,6 +20,7 @@ export default function TabOneScreen() {
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
+
   const dismissBottomSheet = useCallback(() => {
     bottomSheetModalRef.current?.dismiss();
   }, []);
@@ -51,16 +59,24 @@ export default function TabOneScreen() {
               to sustain the palnt during a drought.
             </Text>
 
-            <Pressable
-              onPress={handlePresentModalPress}
-              style={tw`rounded-lg bg-green-400 ml-4 mt-4 w-2/3 `}
-            >
-              <Text
-                style={tw`text-white font-bold text-xl text-center px-4 py-3`}
+            <View style={tw`flex flex-row`}>
+              <Pressable
+                onPress={handlePresentModalPress}
+                style={tw`rounded-xl bg-green-400 ml-4 mt-4 w-1/3`}
               >
-                I'm a button
-              </Text>
-            </Pressable>
+                <Text style={tw`text-white font-bold  text-center p-2`}>
+                  Open Sheets
+                </Text>
+              </Pressable>
+              <Pressable
+                onPress={() => handleNavigatePress()}
+                style={tw`rounded-xl bg-yellow-400 ml-4 mt-4 w-1/3`}
+              >
+                <Text style={tw`text-white font-bold text-center p-2`}>
+                  Navigate Away
+                </Text>
+              </Pressable>
+            </View>
           </View>
         </View>
         <BottomSheetModal

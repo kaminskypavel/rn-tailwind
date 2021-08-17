@@ -14,6 +14,7 @@ import {
 } from "@react-navigation/stack";
 import * as React from "react";
 import { ColorSchemeName } from "react-native";
+import * as screens from "../constants/screen";
 
 import NotFoundScreen from "../screens/NotFoundScreen";
 import SplashScreen from "../screens/Splash";
@@ -48,10 +49,10 @@ function RootNavigator() {
         cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
       }}
     >
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name={screens.SPLASH} component={SplashScreen} />
+      <Stack.Screen name={screens.MAIN} component={BottomTabNavigator} />
       <Stack.Screen
-        name="NotFound"
+        name={screens.NOTFOUND}
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
       />

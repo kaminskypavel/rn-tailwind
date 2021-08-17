@@ -6,7 +6,7 @@ import SplashScreen from './screens/Splash/index';
 
 export type RootStackParamList = {
   SplashScreen: undefined;
-  Root: undefined;
+  MainScreen: undefined;
   NotFound: undefined;
 };
 
