@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import tw from "./../lib/tailwind";
+import SplashScreen from "./Splash";
 
 export default function TabTwoScreen() {
   const [hasPermission, setHasPermission] = useState<boolean>(false);
@@ -35,8 +36,8 @@ export default function TabTwoScreen() {
           Open Camera
         </Text>
       </Pressable>
-
-      <Camera style={styles.camera} type={type}>
+      <SplashScreen />
+      {/* <Camera style={styles.camera} type={type}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
@@ -51,7 +52,7 @@ export default function TabTwoScreen() {
             <Text style={styles.text}> Flip </Text>
           </TouchableOpacity>
         </View>
-      </Camera>
+      </Camera> */}
     </View>
   );
 }
