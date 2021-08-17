@@ -20,7 +20,9 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import SplashScreen from "../screens/Splash";
 import { RootStackParamList } from "../types";
 import BottomTabNavigator from "./BottomTabNavigator";
+import AnimatedTabBar from "./AnimatedTabBar";
 import LinkingConfiguration from "./LinkingConfiguration";
+import tw from "./../lib/tailwind";
 
 export default function Navigation({
   colorScheme,
@@ -50,7 +52,10 @@ function RootNavigator() {
       }}
     >
       <Stack.Screen name={screens.SPLASH} component={SplashScreen} />
-      <Stack.Screen name={screens.MAIN} component={BottomTabNavigator} />
+      <Stack.Screen
+        name={screens.MAIN}
+        component={AnimatedTabBar}
+      />
       <Stack.Screen
         name={screens.NOTFOUND}
         component={NotFoundScreen}

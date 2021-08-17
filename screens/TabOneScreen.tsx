@@ -1,13 +1,16 @@
-import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useMemo, useRef } from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
-import { Path, Svg } from 'react-native-svg';
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from "@gorhom/bottom-sheet";
+import { useNavigation } from "@react-navigation/native";
+import React, { useCallback, useMemo, useRef } from "react";
+import { Image, Pressable, Text, View } from "react-native";
+import { Path, Svg } from "react-native-svg";
 
-import * as screen from './../constants/screen';
-import tw from './../lib/tailwind';
+import * as screen from "./../constants/screen";
+import tw from "./../lib/tailwind";
 
-export default function TabOneScreen({navigation}:any) {
+export default function TabOneScreen({ navigation }: any) {
   const handleNavigatePress = () => {
     // const navigation = useNavigation();
     navigation.navigate(screen.NOTFOUND);
@@ -34,10 +37,10 @@ export default function TabOneScreen({navigation}:any) {
 
   return (
     <BottomSheetModalProvider>
-      <View style={tw`pt-12 items-center h-full ios:bg-white`}>
+      <View style={tw`pt-12 items-center h-full`}>
         <Image style={tw`w-48 h-48 mb-10`} source={require("./plant.png")} />
 
-        <View style={tw`rounded-t-lg w-20/21 h-full `}>
+        <View style={tw`rounded-t-lg w-full h-full `}>
           <Svg height="200" preserveAspectRatio="" width="100%">
             <Path
               fill="#67864A"

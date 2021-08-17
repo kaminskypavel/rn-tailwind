@@ -1419,6 +1419,14 @@
     lodash.pick "^4.4.0"
     lodash.template "^4.5.0"
 
+"@gorhom/animated-tabbar@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@gorhom/animated-tabbar/-/animated-tabbar-2.1.1.tgz#2f804646403b9838e9d24af1e994b706262f9515"
+  integrity sha512-KN+fsmqen3g+w0sDPJSnlUrNUtKno+t/4M39+V0rg78v2tM9q7TVlp23SunsY3CmssT+IRVfGX3iMNkzgOzIdQ==
+  dependencies:
+    lodash.isequal "^4.5.0"
+    react-native-redash "15.7.3"
+
 "@gorhom/bottom-sheet@^4.0.0-alpha.27":
   version "4.0.0-alpha.27"
   resolved "https://registry.yarnpkg.com/@gorhom/bottom-sheet/-/bottom-sheet-4.0.0-alpha.27.tgz#c427b8e45981550d60332fe85d24362926e6daa6"
@@ -7502,10 +7510,10 @@ react-native-reanimated@~2.2.0:
     mockdate "^3.0.2"
     string-hash-64 "^1.0.3"
 
-react-native-redash@^16.1.1:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-redash/-/react-native-redash-16.2.0.tgz#72204bdcdc5c48ccd8bd630e3a954ae5174809b3"
-  integrity sha512-4xRWT6sUTjTM7i7Yd6fEiuylzIPmjYl9XlhL7Tz/NJOPBs+ib6ku7ptF5PRgQIshbQ6kIFwXJWoQ9H71zOMwvA==
+react-native-redash@15.7.3, react-native-redash@16.1.1, react-native-redash@^16.1.1:
+  version "16.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-redash/-/react-native-redash-16.1.1.tgz#784cdf55672043aab9f15ae8c965dcbae8b119ba"
+  integrity sha512-pD3GMNqRz/5bUnX0ni4MMOBlVwH2dJnd7u6M80VqYGI87IfcuP6Sn1z171r0nUUeYvJ7blJQs0OKKmTsJIbWew==
   dependencies:
     abs-svg-path "^0.1.1"
     normalize-svg-path "^1.0.1"

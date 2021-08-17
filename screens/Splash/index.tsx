@@ -10,22 +10,24 @@ import * as screens from "./../../constants/screen";
 type Props = StackScreenProps<RootStackParamList, "SplashScreen">;
 import * as Device from "expo-device";
 
-const TIMEOUT = 4000;
+const TIMEOUT = 300;
 //https://lottiefiles.com/40864-the-awkward-monster
 const SplashScreen: React.FC<Props> = ({ navigation }) => {
   const [isHidden, setIsHidden] = useState(false);
+
   const hide = () => {
     if (!isHidden) {
       setIsHidden(true);
-      navigation.replace(screens.MAIN);
+      navigation?.replace(screens.MAIN);
     }
   };
+
   useEffect(() => {
     setTimeout(() => {
       console.log("Splash::timeout", Device.osName);
       hide();
     }, TIMEOUT);
-  });
+  }, []);
 
   return (
     <View style={tw`flex  items-center justify-center w-full h-full`}>
