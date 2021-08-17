@@ -10,7 +10,7 @@ import * as screens from "./../../constants/screen";
 type Props = StackScreenProps<RootStackParamList, "SplashScreen">;
 import * as Device from "expo-device";
 
-const TIMEOUT = 1000;
+const TIMEOUT = 4000;
 //https://lottiefiles.com/40864-the-awkward-monster
 const SplashScreen: React.FC<Props> = ({ navigation }) => {
   const [isHidden, setIsHidden] = useState(false);
