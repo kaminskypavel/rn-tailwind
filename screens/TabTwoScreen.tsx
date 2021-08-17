@@ -1,19 +1,15 @@
+import { useNavigation } from "@react-navigation/native";
 import { Camera } from "expo-camera";
 import React, { useEffect, useState } from "react";
-import {
-  TouchableOpacity,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+
 import tw from "./../lib/tailwind";
-import SplashScreen from "./Splash";
 
 export default function TabTwoScreen() {
   const [hasPermission, setHasPermission] = useState<boolean>(false);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [showCamera, setShowCamera] = useState<boolean>(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -31,12 +27,11 @@ export default function TabTwoScreen() {
 
   return (
     <View style={tw`w-full h-full flex items-center justify-center`}>
-      <Pressable onPress={() => setShowCamera(true)}>
+      <Pressable onPress={() => navigation.goBack()}>
         <Text style={tw`bg-mygreen p-4 rounded-xl text-white font-bold`}>
           Open Camera
         </Text>
       </Pressable>
-      <SplashScreen />
       {/* <Camera style={styles.camera} type={type}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
