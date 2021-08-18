@@ -2179,12 +2179,27 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-12.6.1.tgz#9878c9c956c689f2287dcaf69e56334715392d87"
   integrity sha512-ybZjx/VIcUGi1ouLUzEzi/vXWNR23rt0qeTrivstlNW9rtGU4tpF6gLcedrDysyrK7Ye4DsKeWkKl/X8jBHo4Q==
 
+"@react-native-firebase/database@^12.6.1":
+  version "12.6.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-12.6.1.tgz#ae0c4a74076e60f2e62ebe7aa31d28b8aa22c44b"
+  integrity sha512-He+D2rvc669tzRXZk7go+BO7QCWtKteFm7JGSEeLuXzLxjDDjJqhV9/ulJatCx5NUj0dUmv3W+XLcrl+nDEX5w==
+
+"@react-native-firebase/firestore@^12.6.1":
+  version "12.6.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-12.6.1.tgz#3bbcbce93282f5206743857edaa7760de37ab16e"
+  integrity sha512-NlkIaQF3oev2cC4yXZmu2b9iN1XiezaN5HklLyj+BRkBFGYoVEerpfGkbLwro9hF6uWZKryxveix3bEjtUAvRQ==
+
 "@react-native-firebase/perf@^12.6.1":
   version "12.6.1"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-12.6.1.tgz#c2df607b947b47c137135cdc75ff2b27117dc874"
   integrity sha512-Lk1klyKA0oFUdB56pgZNUl3GqZ32QpHdxdZCPm6UimRt/foMIny1Veid7bqGw3hkrVybC2EFHuwYrc4mvYv4lA==
   dependencies:
     "@expo/config-plugins" "^3.0.7"
+
+"@react-native-firebase/storage@^12.6.1":
+  version "12.6.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-12.6.1.tgz#fac07f6352097ebe451f529ef37f32989a7ccdc7"
+  integrity sha512-hUCcOaiMpLZtukho2XJqOufEz8GsQs+4pigZofJDPnuI/Y1dKHf/VkYAtLWh5A5pdsrLcmWWGorHId3NGoHAKQ==
 
 "@react-navigation/bottom-tabs@5.11.2":
   version "5.11.2"
