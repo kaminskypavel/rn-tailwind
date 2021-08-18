@@ -10,7 +10,18 @@
     "tw:generate": "npx trnc-create-styles"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "testRegex": [
+      "(/__tests__/.*|(\\.|/)(test|spec))\\.(t|j)sx?$"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
@@ -40,6 +51,7 @@
     "react-native-screens": "~3.4.0",
     "react-native-svg": "12.1.1",
     "react-native-web": "~0.13.12",
+    "react-test-renderer": "^17.0.2",
     "tailwind-react-native-classnames": "^1.4.2",
     "tailwind-rn": "^3.0.1"
   },
