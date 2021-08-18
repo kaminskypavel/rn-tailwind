@@ -1,9 +1,8 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": " expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
@@ -17,6 +16,10 @@
     "@gorhom/animated-tabbar": "2.1.1",
     "@gorhom/bottom-sheet": "^4.0.0-alpha.27",
     "@react-native-community/masked-view": "0.1.10",
+    "@react-native-firebase/analytics": "^12.6.1",
+    "@react-native-firebase/app": "^12.6.1",
+    "@react-native-firebase/auth": "^12.6.1",
+    "@react-native-firebase/perf": "^12.6.1",
     "@react-navigation/bottom-tabs": "5.11.2",
     "@react-navigation/native": "~5.8.10",
     "@react-navigation/stack": "~5.12.8",
@@ -24,21 +27,24 @@
     "expo-asset": "~8.3.2",
     "expo-camera": "~11.2.2",
     "expo-constants": "~11.0.1",
+    "expo-dev-client": "^0.4.7",
     "expo-device": "~3.3.0",
     "expo-font": "~9.2.1",
     "expo-linking": "~2.3.1",
     "expo-splash-screen": "~0.11.2",
     "expo-status-bar": "~1.0.4",
+    "expo-updates": "~0.8.1",
     "expo-web-browser": "~9.2.0",
     "lottie-react-native": "4.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native": "~0.63.4",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
     "react-native-svg": "12.1.1",
+    "react-native-unimodules": "~0.14.5",
     "react-native-web": "~0.13.12",
     "tailwind-react-native-classnames": "^1.4.2",
     "tailwind-rn": "^3.0.1"
@@ -53,5 +59,7 @@
   "resolutions": {
     "react-native-redash": "16.1.1"
   },
-  "private": true
+  "private": true,
+  "name": "expo-tailwind",
+  "version": "1.0.0"
 }

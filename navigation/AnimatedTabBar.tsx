@@ -7,6 +7,7 @@ import AnimatedTabBar, {
 } from "@gorhom/animated-tabbar";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
+import Login from "../screens/Login";
 import { Feather } from "@expo/vector-icons";
 
 const tabs: TabsConfig<BubbleTabBarItemConfig> = {
@@ -43,29 +44,13 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
       inactiveColor: "rgba(207,235,239,0)",
     },
   },
-  Profile2: {
+  Login: {
     labelStyle: {
       color: "#1194AA",
     },
     icon: {
       component: (props) => (
-        <Feather {...props} name="codepen" size={24} color="black" />
-      ),
-      activeColor: "rgba(17,148,170,1)",
-      inactiveColor: "rgba(0,0,0,1)",
-    },
-    background: {
-      activeColor: "rgba(207,235,239,1)",
-      inactiveColor: "rgba(207,235,239,0)",
-    },
-  },
-  Profile3: {
-    labelStyle: {
-      color: "#1194AA",
-    },
-    icon: {
-      component: (props) => (
-        <Feather {...props} name="codepen" size={24} color="black" />
+        <Feather {...props} name="user" size={24} color="black" />
       ),
       activeColor: "rgba(17,148,170,1)",
       inactiveColor: "rgba(0,0,0,1)",
@@ -88,8 +73,7 @@ export default function App() {
     >
       <Tab.Screen name="Home" component={TabOneScreen} />
       <Tab.Screen name="Profile" component={TabTwoScreen} />
-      <Tab.Screen name="Profile2" component={TabTwoScreen} />
-      <Tab.Screen name="Profile3" component={TabTwoScreen} />
+      <Tab.Screen name="Login" component={Login} />
     </Tab.Navigator>
   );
 }

@@ -9,6 +9,8 @@ import { Path, Svg } from "react-native-svg";
 
 import * as screen from "./../constants/screen";
 import tw from "./../lib/tailwind";
+import firebase from '@react-native-firebase/app';
+import auth from '@react-native-firebase/auth';
 
 export default function TabOneScreen({ navigation }: any) {
   const handleNavigatePress = () => {
@@ -35,11 +37,13 @@ export default function TabOneScreen({ navigation }: any) {
   // variables
   const snapPoints = useMemo(() => ["25%", "50%", "80%"], []);
 
+  // const user = auth().currentUser;
+const user = {email:"email"};
   return (
     <BottomSheetModalProvider>
       <View style={tw`pt-12 items-center h-full`}>
         <Image style={tw`w-48 h-48 mb-10`} source={require("./plant.png")} />
-
+        <Text>Welcome {user.email}</Text>
         <View style={tw`rounded-t-lg w-full h-full `}>
           <Svg height="200" preserveAspectRatio="" width="100%">
             <Path
