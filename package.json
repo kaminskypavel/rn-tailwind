@@ -1,13 +1,14 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": "react-native start",
+    "android": "expo run:android",
+    "ios": "react-native run-ios",
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "tw:generate": "npx trnc-create-styles"
+    "tw:generate": "npx trnc-create-styles",
+    "build:android": "detox build -c android.emu.debug",
+    "test:android": "detox test -c android.emu.debug"
   },
   "jest": {
     "preset": "jest-expo",
@@ -24,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "@config-plugins/detox": "^0.0.0",
     "@expo/vector-icons": "^12.0.0",
     "@gorhom/animated-tabbar": "2.1.1",
     "@gorhom/bottom-sheet": "^4.0.0-alpha.27",
@@ -35,38 +37,49 @@
     "expo-asset": "~8.3.2",
     "expo-camera": "~11.2.2",
     "expo-constants": "~11.0.1",
+    "expo-dev-client": "^0.4.7",
     "expo-device": "~3.3.0",
     "expo-font": "~9.2.1",
     "expo-linking": "~2.3.1",
-    "expo-splash-screen": "~0.11.2",
     "expo-status-bar": "~1.0.4",
+    "expo-updates": "~0.8.1",
     "expo-web-browser": "~9.2.0",
     "lottie-react-native": "4.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native": "~0.63.4",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-health": "^1.10.0",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
     "react-native-svg": "12.1.1",
+    "react-native-unimodules": "~0.14.5",
     "react-native-web": "~0.13.12",
     "react-test-renderer": "^17.0.2",
     "tailwind-react-native-classnames": "^1.4.2",
-    "tailwind-rn": "^3.0.1"
+    "tailwind-rn": "^3.0.1",
+    "expo-splash-screen": "~0.11.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.15.0",
+    "@babel/runtime": "^7.15.3",
     "@types/jest": "^27.0.1",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^27.0.6",
     "detox": "^18.20.2",
+    "jest": "^27.0.6",
+    "jest-circus": "^27.0.6",
     "jest-expo": "^42.1.0",
+    "ts-jest": "^27.0.5",
     "typescript": "~4.0.0"
   },
   "resolutions": {
     "react-native-redash": "16.1.1"
   },
-  "private": true
+  "private": true,
+  "name": "expo-tailwind",
+  "version": "1.0.0"
 }

@@ -25,11 +25,15 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kaminskypavel.expotailwind"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
     "sdkVersion": "42.0.0"
-  }
+  },
+  "plugins": [
+    "@config-plugins/detox"
+  ]
 }

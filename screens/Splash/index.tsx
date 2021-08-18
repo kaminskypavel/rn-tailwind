@@ -30,8 +30,8 @@ const SplashScreen: React.FC<Props> = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={tw`flex  items-center justify-center w-full h-full`}>
-      <LottieView
+    <View testId="splash" style={tw`flex  items-center justify-center w-full h-full`}>
+      {/* <LottieView
         autoPlay={true}
         speed={1}
         autoSize={false}
@@ -40,7 +40,7 @@ const SplashScreen: React.FC<Props> = ({ navigation }) => {
           console.log("Splash::onAnimationFinish", Device.osName);
           hide();
         }}
-      />
+      /> */}
       <Text style={tw`text-4xl text-red-500 pt-48`}> Deabetus!</Text>
     </View>
   );
