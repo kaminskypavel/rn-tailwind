@@ -4,6 +4,8 @@ import { Pressable, Text, View, Image } from "react-native";
 import tw from "../lib/tailwind";
 import database from "@react-native-firebase/database";
 import storage from "@react-native-firebase/storage";
+import Button from "../components/Button";
+import notifee from "@notifee/react-native";
 
 export default function Login() {
   // Set an initializing state whilst Firebase connects
@@ -19,7 +21,27 @@ export default function Login() {
     setUser(user);
     if (initializing) setInitializing(false);
   }
+  async function onDisplayNotification() {
+    // Create a channel
+    const channelId = await notifee.createChannel({
+      id: "default",
+      name: "Default Channel",
+    });
 
+    // Display a notification
+    await notifee.displayNotification({
+      title: "Notification Title",
+      body: "Main body content of the notification",
+      android: {
+        channelId,
+        smallIcon: "ic_launcher", // optional, defaults to 'ic_launcher'.
+      },
+    });
+  }
+
+  const remote = async () => {
+    
+  };
   const login = async () => {
     auth()
       .signInWithEmailAndPassword("test@diabeetus.com", "123456")
@@ -85,9 +107,20 @@ export default function Login() {
       />
 
       <Text style={tw` p-4 m-10 border-2  text-center`}>
-        {photo}
-        {JSON.stringify(user)}
+        {JSON.stringify(user.email)}
       </Text>
+
+      <Button
+        title="Local Push Notification"
+        onPress={onDisplayNotification}
+        style="bg-yellow-400"
+      />
+
+      <Button
+        title="Local Push Notification"
+        onPress={remote}
+        style="bg-yellow-400"
+      />
     </View>
   );
 }

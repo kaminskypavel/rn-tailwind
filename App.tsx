@@ -15,7 +15,7 @@ export default function App() {
   const { isLoadingComplete, onLayoutRootView } = useCachedResources();
   const colorScheme = useColorScheme();
   useBackAction(() => BackHandler.exitApp());
-  
+
   if (!isLoadingComplete) {
     return null;
   } else {
