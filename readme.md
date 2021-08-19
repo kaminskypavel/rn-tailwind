@@ -1,6 +1,18 @@
-# React-Native (Expo) + Tailwind
+# React-Native (Expo) + Tailwind + Firebase
+
+## Build
+
+to make this work, you'll need to provide your own ```google-services.json``` files
+
+- place it in the main folder.
+- ```yarn android``` will install your custom expo client (and click ```a``` to open android emulator)
+- ```yarn start``` will run expo --dev-client
+
+---
+
 
 ![Design](/assets/design.png)
+
 
 [Original Fig Design](https://www.figma.com/file/XY7QVu04MbwTIhBEsXSUnU/plant-app?node-id=1%3A135)
 
