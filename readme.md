@@ -13,8 +13,10 @@ to make this work, you'll need to provide your own ```google-services.json``` fi
 
 ![Design](/assets/design.png)
 
-
 [Original Fig Design](https://www.figma.com/file/XY7QVu04MbwTIhBEsXSUnU/plant-app?node-id=1%3A135)
+
+[App Icon and Splash](https://www.figma.com/file/vhpXhfYVlHq5aGyQp9vP4R/App-Icon-%26-Splash-(Copy)?node-id=1%3A1357)
+[Tutorial](https://docs.expo.dev/guides/app-icons/)
 
 ### SVG
 
@@ -22,7 +24,12 @@ to make this work, you'll need to provide your own ```google-services.json``` fi
 - [Blob Maker](https://www.blobmaker.app/)
 - [svg tutorial](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)
 
-### Resources
+### Notification
+- [Background](https://notifee.app/react-native/docs/events)
+- once running the app the TOKEN will appear in the console
+- copy it to ```server/fcm.ts```
+- Notifications are caught in all states (Foreground/Background/Killed)
+- if app is killed the fcm message priority must be `high` this is documented in `fcm.ts`
 
 ### ML
 

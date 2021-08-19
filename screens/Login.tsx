@@ -4,10 +4,10 @@ import { Pressable, Text, View, Image } from "react-native";
 import tw from "../lib/tailwind";
 import database from "@react-native-firebase/database";
 import storage from "@react-native-firebase/storage";
+import Button from "../components/Button";
+import notifee, { AndroidLaunchActivityFlag } from "@notifee/react-native";
 
 export default function Login() {
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState<FirebaseAuthTypes.User>();
   const [photo, setPhoto] = useState("");
 
@@ -17,9 +17,65 @@ export default function Login() {
     const photo = await reference.getDownloadURL();
     setPhoto(photo);
     setUser(user);
-    if (initializing) setInitializing(false);
+  }
+  async function onDisplayNotification() {
+    // Create a channel
+    const channelId = await notifee.createChannel({
+      id: "default",
+      name: "Default Channel",
+    });
+
+    try {
+      // Display a notification
+      await notifee.displayNotification({
+        title: "Notification Title",
+        body: "Main body content of the notification",
+        android: {
+          channelId,
+          smallIcon: "ic_launcher", // optional, defaults to 'ic_launcher'.
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
+  const remote = async () => {
+    // Create a channel
+    const remoteChannelId = await notifee.createChannel({
+      id: "remote",
+      name: "remote notifications Channel",
+    });
+
+    try {
+      notifee.displayNotification({
+        title: "Small Icon",
+        body: "A notification using the small icon!.",
+        android: {
+          color: "#9c27b0",
+          channelId: remoteChannelId,
+          largeIcon: require("./../assets/images/homer.png"),
+          pressAction: {
+            id: 'default',
+            launchActivity: 'default',
+            launchActivityFlags: [AndroidLaunchActivityFlag.SINGLE_TOP],
+          },
+          actions: [
+            {
+              title: "<b>Dance</b> &#128111;",
+              pressAction: { id: "dance" },
+            },
+            {
+              title: '<p style="color: #f44336;"><b>Cry</b> &#128557;</p>',
+              pressAction: { id: "cry" },
+            },
+          ],
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const login = async () => {
     auth()
       .signInWithEmailAndPassword("test@diabeetus.com", "123456")
@@ -55,8 +111,6 @@ export default function Login() {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  if (initializing) return null;
-
   if (!user?.email) {
     return (
       <View>
@@ -85,9 +139,20 @@ export default function Login() {
       />
 
       <Text style={tw` p-4 m-10 border-2  text-center`}>
-        {photo}
-        {JSON.stringify(user)}
+        {JSON.stringify(user.email)}
       </Text>
+
+      <Button
+        title="Remote Push Notification"
+        onPress={remote}
+        style="bg-blue-400 m-4 text-white"
+      />
+
+      <Button
+        title="Local Push Notification"
+        onPress={onDisplayNotification}
+        style="bg-yellow-400 text-black"
+      />
     </View>
   );
 }
