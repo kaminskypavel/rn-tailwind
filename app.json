@@ -38,7 +38,9 @@
     "@react-native-firebase/auth",
     "@react-native-firebase/database",
     "@react-native-firebase/storage",
+    "@react-native-firebase/firestore",
     "@react-native-firebase/perf",
+    "@react-native-firebase/messaging",
     "react-native/notifee"
   ]
 }

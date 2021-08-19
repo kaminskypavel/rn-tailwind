@@ -24,7 +24,12 @@ to make this work, you'll need to provide your own ```google-services.json``` fi
 - [Blob Maker](https://www.blobmaker.app/)
 - [svg tutorial](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)
 
-### Resources
+### Notification
+- [Background](https://notifee.app/react-native/docs/events)
+- once running the app the TOKEN will appear in the console
+- copy it to ```server/fcm.ts```
+- Notifications are caught in all states (Foreground/Background/Killed)
+- if app is killed the fcm message priority must be `high` this is documented in `fcm.ts`
 
 ### ML
 

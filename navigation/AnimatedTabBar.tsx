@@ -71,9 +71,9 @@ export default function App() {
         <AnimatedTabBar preset="bubble" tabs={tabs} {...props} />
       )}
     >
+      <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Home" component={TabOneScreen} />
       <Tab.Screen name="Profile" component={TabTwoScreen} />
-      <Tab.Screen name="Login" component={Login} />
     </Tab.Navigator>
   );
 }

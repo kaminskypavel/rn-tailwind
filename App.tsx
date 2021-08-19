@@ -10,12 +10,13 @@ import tw from "./lib/tailwind";
 import Navigation from "./navigation";
 import useBackAction from "./hooks/useBackAction";
 import { BackHandler } from "react-native";
+import usePushNotifications from "./hooks/usePushNotificaions";
 
 export default function App() {
   const { isLoadingComplete, onLayoutRootView } = useCachedResources();
   const colorScheme = useColorScheme();
   useBackAction(() => BackHandler.exitApp());
-
+  usePushNotifications();
   if (!isLoadingComplete) {
     return null;
   } else {
