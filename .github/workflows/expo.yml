@@ -16,5 +16,5 @@ jobs:
         with:
           expo-version: 4.x
           token: ${{ secrets.EXPO_TOKEN }}
-      - run: yarn install
-      - run: expo publish
+      # - run: yarn install
+      # - run: expo publish
