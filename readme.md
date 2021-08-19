@@ -13,8 +13,10 @@ to make this work, you'll need to provide your own ```google-services.json``` fi
 
 ![Design](/assets/design.png)
 
-
 [Original Fig Design](https://www.figma.com/file/XY7QVu04MbwTIhBEsXSUnU/plant-app?node-id=1%3A135)
+
+[App Icon and Splash](https://www.figma.com/file/vhpXhfYVlHq5aGyQp9vP4R/App-Icon-%26-Splash-(Copy)?node-id=1%3A1357)
+[Tutorial](https://docs.expo.dev/guides/app-icons/)
 
 ### SVG
 
