@@ -15,10 +15,12 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
-      // "googleServicesFile": "./GoogleService-Info.plist"
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kaminskypavel.app"
     },
     "android": {
       "package": "com.kaminskypavel.app",
@@ -41,6 +43,7 @@
     "@react-native-firebase/firestore",
     "@react-native-firebase/perf",
     "@react-native-firebase/messaging",
-    "react-native/notifee"
+    "react-native/notifee",
+    "@config-plugins/react-native-ble-plx"
   ]
 }

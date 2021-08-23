@@ -72,5 +72,5 @@ web-build/
 
 android/
 google-services.json
-
+GoogleService-Info.plist
 # @end expo-cli
