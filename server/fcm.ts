@@ -2,8 +2,11 @@
 
 import admin from "firebase-admin";
 import serviceAccount from "./serviceAccount-easy-tax-8097d-40da61ebfb08.json";
+import { Command } from "commander";
+const program = new Command();
 
-const TOKEN = `ceNr9wGURcyl3sv_tg1wPQ:APA91bEIoFHC0E04gQec5L_IGRBEDCaB2TT2SFxZst1iD-_CupgjIr1ZmkKGgjuKrKEAQUnKwm_gmdAD05VIcJbmzMwO3zBRvw_houBnUIXmVgqP5aQKWhqGiaOrEibvX9nqKacyQvg4`;
+program.option("-t, --token <token>", "android push notificaton token");
+program.parse();
 
 // Initialize Firebase
 admin.initializeApp({
@@ -13,12 +16,11 @@ admin.initializeApp({
 });
 
 async function sendMessage() {
-  // Fetch the tokens from an external datastore (e.g. database)
-  const tokens = [TOKEN];
+  const tokens = [program.opts().token];
 
-  console.log("segning messages");
+  console.log("segding messages");
   // Send a message to devices with the registered tokens
-  await admin.messaging().sendMulticast({
+  const res = await admin.messaging().sendMulticast({
     tokens,
     // https://github.com/notifee/react-native-notifee/issues/183#issuecomment-731196022
     android: {
@@ -33,7 +35,8 @@ async function sendMessage() {
     },
   });
 
-  console.log("complete 🍌🍌");
+  console.log(res);
+  console.log("completed 🍌🍌");
 }
 
 // Send messages to our users

@@ -27,7 +27,8 @@ to make this work, you'll need to provide your own ```google-services.json``` fi
 ### Notification
 - [Background](https://notifee.app/react-native/docs/events)
 - once running the app the TOKEN will appear in the console
-- copy it to ```server/fcm.ts```
+- `cd server`
+- `yarn start --token <token>
 - Notifications are caught in all states (Foreground/Background/Killed)
 - if app is killed the fcm message priority must be `high` this is documented in `fcm.ts`
 
