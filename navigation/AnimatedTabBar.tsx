@@ -7,6 +7,7 @@ import AnimatedTabBar, {
 } from "@gorhom/animated-tabbar";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
+import BLEScreen from "../screens/BLEScreen";
 import Login from "../screens/Login";
 import { Feather } from "@expo/vector-icons";
 
@@ -60,6 +61,22 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
       inactiveColor: "rgba(207,235,239,0)",
     },
   },
+  BLE: {
+    labelStyle: {
+      color: "#1194AA",
+    },
+    icon: {
+      component: (props) => (
+        <Feather {...props} name="user" size={24} color="black" />
+      ),
+      activeColor: "rgba(17,148,170,1)",
+      inactiveColor: "rgba(0,0,0,1)",
+    },
+    background: {
+      activeColor: "rgba(207,235,239,1)",
+      inactiveColor: "rgba(207,235,239,0)",
+    },
+  },
 };
 
 const Tab = createBottomTabNavigator();
@@ -74,6 +91,7 @@ export default function App() {
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Home" component={TabOneScreen} />
       <Tab.Screen name="Profile" component={TabTwoScreen} />
+      <Tab.Screen name="BLE" component={BLEScreen} />
     </Tab.Navigator>
   );
 }

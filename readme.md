@@ -45,3 +45,12 @@ possible classiffication models
 
 - [TabBar](https://github.com/gorhom/react-native-animated-tabbar/issues/116)
   - [this issue](https://github.com/gorhom/react-native-animated-tabbar/issues/116) explains the "resolution" field in [package.json](package.json)
+
+
+## Win 10 
+
+- list AVDs
+> emualtor -list-avds
+
+- alias for starting android emulator
+>START \B C:\Users\kamin\AppData\Local\Android\Sdk\emulator\emulator.exe" @Pixel_5_API_30
