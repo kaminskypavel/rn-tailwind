@@ -21,7 +21,7 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaView style={tw`w-full h-full`} onLayout={onLayoutRootView}>
+      <SafeAreaView style={tw`w-full h-full bg-black`} onLayout={onLayoutRootView}>
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
       </SafeAreaView>
