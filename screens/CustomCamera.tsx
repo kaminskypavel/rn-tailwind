@@ -1,17 +1,15 @@
-import { useNavigation } from "@react-navigation/native";
 import { Camera } from "expo-camera";
+import * as MediaLibrary from "expo-media-library";
 import React, { useEffect, useRef, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import PlateSVG from "../components/PlateSVG";
-import * as MediaLibrary from 'expo-media-library';
 
+import PlateSVG from "../components/PlateSVG";
 import tw from "../lib/tailwind";
+import functions from "@react-native-firebase/functions";
 
 export default function CustomCamera() {
   const [hasPermission, setHasPermission] = useState<boolean>(false);
   const [type, setType] = useState(Camera.Constants.Type.back);
-  const [showCamera, setShowCamera] = useState<boolean>(false);
-  const navigation = useNavigation();
   const cameraRef = useRef<Camera>();
 
   const snap = async () => {
@@ -19,12 +17,13 @@ export default function CustomCamera() {
     if (camera) {
       const photo = await camera.takePictureAsync();
       MediaLibrary.saveToLibraryAsync(photo.uri);
-
-
       console.log(photo);
     } else {
       console.error("No camera");
     }
+
+    const res = await functions().httpsCallable("helloWorld")({ data: 123 });
+    console.log(res);
   };
   useEffect(() => {
     (async () => {
@@ -42,11 +41,11 @@ export default function CustomCamera() {
 
   return (
     <View style={tw`w-full h-full flex items-center justify-center `}>
-      {/* @ts-ignore */}
       <Camera
         style={tw`flex w-full h-full`}
         type={type}
         useCamera2Api={true}
+        /* @ts-ignore */
         ref={cameraRef}
       >
         <View style={styles.buttonContainer}>
