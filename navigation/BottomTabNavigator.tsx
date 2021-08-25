@@ -14,7 +14,7 @@ import { View } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import CustomCamera from "../screens/CustomCamera";
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
 import tw from "./../lib/tailwind";
 
@@ -90,7 +90,7 @@ function TabTwoNavigator() {
     >
       <TabTwoStack.Screen
         name="TabTwoScreen"
-        component={TabTwoScreen}
+        component={CustomCamera}
         options={{ headerTitle: "Tab Two Title" }}
       />
     </TabTwoStack.Navigator>

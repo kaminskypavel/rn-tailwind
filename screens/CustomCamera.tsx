@@ -3,9 +3,9 @@ import { Camera } from "expo-camera";
 import React, { useEffect, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-import tw from "./../lib/tailwind";
+import tw from "../lib/tailwind";
 
-export default function TabTwoScreen() {
+export default function CustomCamera() {
   const [hasPermission, setHasPermission] = useState<boolean>(false);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [showCamera, setShowCamera] = useState<boolean>(false);

@@ -6,7 +6,7 @@ import AnimatedTabBar, {
   BubbleTabBarItemConfig,
 } from "@gorhom/animated-tabbar";
 import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
+import CustomCamera from "../screens/CustomCamera";
 import BLEScreen from "../screens/BLEScreen";
 import Login from "../screens/Login";
 import { Feather } from "@expo/vector-icons";
@@ -90,7 +90,7 @@ export default function App() {
     >
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Home" component={TabOneScreen} />
-      <Tab.Screen name="Profile" component={TabTwoScreen} />
+      <Tab.Screen name="Profile" component={CustomCamera} />
       <Tab.Screen name="BLE" component={BLEScreen} />
     </Tab.Navigator>
   );
