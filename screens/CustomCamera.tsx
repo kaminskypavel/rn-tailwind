@@ -1,7 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import { Camera } from "expo-camera";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import PlateSVG from "../components/PlateSVG";
+import * as MediaLibrary from 'expo-media-library';
 
 import tw from "../lib/tailwind";
 
@@ -10,7 +12,20 @@ export default function CustomCamera() {
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [showCamera, setShowCamera] = useState<boolean>(false);
   const navigation = useNavigation();
+  const cameraRef = useRef<Camera>();
 
+  const snap = async () => {
+    const camera = cameraRef.current;
+    if (camera) {
+      const photo = await camera.takePictureAsync();
+      MediaLibrary.saveToLibraryAsync(photo.uri);
+
+
+      console.log(photo);
+    } else {
+      console.error("No camera");
+    }
+  };
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestPermissionsAsync();
@@ -26,28 +41,27 @@ export default function CustomCamera() {
   }
 
   return (
-    <View style={tw`w-full h-full flex items-center justify-center`}>
-      <Pressable onPress={() => navigation.goBack()}>
-        <Text style={tw`bg-mygreen p-4 rounded-xl text-white font-bold`}>
-          Open Camera
-        </Text>
-      </Pressable>
-      {/* <Camera style={styles.camera} type={type}>
+    <View style={tw`w-full h-full flex items-center justify-center `}>
+      {/* @ts-ignore */}
+      <Camera
+        style={tw`flex w-full h-full`}
+        type={type}
+        useCamera2Api={true}
+        ref={cameraRef}
+      >
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
-            }}
-          >
-            <Text style={styles.text}> Flip </Text>
-          </TouchableOpacity>
+          <Text style={styles.text}> Flip </Text>
+          <View style={tw`w-full`}>
+            <PlateSVG />
+          </View>
         </View>
-      </Camera> */}
+        <Pressable
+          style={tw`bg-green-500 rounded-xl ring-pink-300 mt-12 p-5`}
+          onPress={snap}
+        >
+          <Text style={tw`w-full text-white text-center`}>Snap an Image</Text>
+        </Pressable>
+      </Camera>
     </View>
   );
 }
@@ -55,11 +69,6 @@ export default function CustomCamera() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  camera: {
-    flex: 1,
-    width: "100%",
-    height: "40%",
   },
   buttonContainer: {
     flex: 1,

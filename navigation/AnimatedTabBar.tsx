@@ -29,13 +29,13 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
       inactiveColor: "rgba(223,215,243,0)",
     },
   },
-  Profile: {
+  Camera: {
     labelStyle: {
       color: "#1194AA",
     },
     icon: {
       component: (props) => (
-        <Feather {...props} name="codepen" size={24} color="black" />
+        <Feather {...props} name="camera" size={24} color="black" />
       ),
       activeColor: "rgba(17,148,170,1)",
       inactiveColor: "rgba(0,0,0,1)",
@@ -90,7 +90,7 @@ export default function App() {
     >
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Home" component={TabOneScreen} />
-      <Tab.Screen name="Profile" component={CustomCamera} />
+      <Tab.Screen name="Camera" component={CustomCamera} />
       <Tab.Screen name="BLE" component={BLEScreen} />
     </Tab.Navigator>
   );
