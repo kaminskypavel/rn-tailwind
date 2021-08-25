@@ -1,7 +1,9 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { BleManager } from "react-native-ble-plx";
+import React, { useState } from "react";
+import { Alert, Pressable, Text, View } from "react-native";
+import { BleManager, Device } from "react-native-ble-plx";
+import Button from "../components/Button";
 
+import tw from "../lib/tailwind";
 import useBluetoothDevices, {
   useManager,
   useManagerState,
@@ -10,8 +12,6 @@ import useBluetoothDevices, {
 export default function BLEScreen() {
   const bleManager = useManager();
   const state = useManagerState(bleManager);
-
-  // console.log("Info:", state);
 
   return (
     <View
@@ -28,23 +28,55 @@ export default function BLEScreen() {
   );
 }
 
+// !important : https://github.com/dotintent/react-native-ble-plx/issues/390
 const DeviceScanner: React.FC<{ bleManager: BleManager }> = ({
   bleManager,
 }) => {
   const [devices] = useBluetoothDevices(bleManager);
+  const [connectedDevice, setConnectedDevice] = useState<Device | null>();
+  console.log({devices, connectedDevice});
+  const handlePressButton = async (device: Device) => {
+    try {
+      Alert.alert(device.id);
+      const res = await bleManager.connectToDevice(device.id);
+      console.log("conected 📱📱📱📱");
+      setConnectedDevice(device);
 
-  React.useEffect(() => {
-    // console.log(devices);
-  }, [devices]);
+      const allServicesAndCharachteristics =
+        await device.discoverAllServicesAndCharacteristics();
+      const services = await device.services();
+
+      console.log(11111111111, { services });
+    } catch (e) {
+      console.log("error", e);
+    }
+  };
 
   return (
     <View>
+      {connectedDevice && (
+        <View style={tw`text-white`}>
+          <Text>connected device options</Text>
+          <Button
+            title="disconnect"
+            onPress={async () => {
+              connectedDevice?.cancelConnection();
+              setConnectedDevice(null);
+            }}
+          />
+        </View>
+      )}
+
       {devices
         .filter(({ name }) => name)
         .map((device, index) => (
-          <Text key={`-${index}`} style={{ fontSize: 14, color: "white" }}>
-            {device.name}
-          </Text>
+          <Pressable
+            style={tw`border-b-2 border-red-600 m-4 bg-pink-400`}
+            onPress={() => handlePressButton(device)}
+            key={`-${index}`}
+          >
+            <Text style={tw`text-white`}>{device.name}</Text>
+          </Pressable>
         ))}
     </View>
   );

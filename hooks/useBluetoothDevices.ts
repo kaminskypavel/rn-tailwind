@@ -59,9 +59,8 @@ export function useBluetoothDevices(
       }
     );
 
-    return () => {
-      bleManager.stopDeviceScan();
-    };
+    //cleanup
+    return () => bleManager.stopDeviceScan();
   }, [bleManager]);
 
   return [devices, error];
