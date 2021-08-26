@@ -22,9 +22,29 @@ export default function CustomCamera() {
       console.error("No camera");
     }
 
-    const res = await functions().httpsCallable("helloWorld")({ data: 123 });
-    console.log(res);
+    /*     const imgData = {
+      image: {
+        source: {
+          imageUri:
+            "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+        },
+        // content?: Uint8Array | string | null;
+      },
+      features: [
+        {
+          type: "LOGO_DETECTION",
+          maxResults: 1,
+        },
+      ],
+    };
+    console.log("reqyesting data", imgData);
+    const { data } = await functions().httpsCallable("annotateImage")(
+      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    );
+    console.log(data);
+ */
   };
+
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestPermissionsAsync();
@@ -49,7 +69,7 @@ export default function CustomCamera() {
         ref={cameraRef}
       >
         <View style={styles.buttonContainer}>
-          <Text style={styles.text}> Flip </Text>
+          <Text style={tw`text-red-900`}> Flip </Text>
           <View style={tw`w-full`}>
             <PlateSVG />
           </View>
@@ -79,9 +99,5 @@ const styles = StyleSheet.create({
     flex: 0.1,
     alignSelf: "flex-end",
     alignItems: "center",
-  },
-  text: {
-    fontSize: 18,
-    color: "white",
   },
 });

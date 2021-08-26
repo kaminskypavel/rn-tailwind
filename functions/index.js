@@ -1,5 +1,5 @@
 const functions = require("firebase-functions");
-const vision =require("@google-cloud/vision");
+const vision = require("@google-cloud/vision");
 
 const client = new vision.ImageAnnotatorClient();
 
@@ -11,12 +11,12 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
 
-exports.helloWorldOnCall = functions.https.onCall((data, context) => {
+exports.helloWorldOnCall = functions.https.onCall((data = {}, context) => {
   functions.logger.info("helloWorldOnCall!", { structuredData: true });
 
   return {
     text: "helloWorld",
-    data,
+    ...data,
   };
 });
 
@@ -30,15 +30,21 @@ exports.helloWorldOnCall = functions.https.onCall((data, context) => {
 //    || context.auth.token?.firebase?.email_verified === false
 // Also see: https://firebase.google.com/docs/auth/admin/custom-claims
 exports.annotateImage = functions.https.onCall(async (data, context) => {
-  if (!context.auth) {
-    throw new functions.https.HttpsError(
-      "unauthenticated",
-      "annotateImage must be called while authenticated."
-    );
-  }
+  // if (!context.auth) {
+  //   console.error("unauthenticated");
+  //   throw new functions.https.HttpsError(
+  //     "unauthenticated",
+  //     "annotateImage must be called while authenticated."
+  //   );
+  // }
+
   try {
-    return await client.annotateImage(JSON.parse(data));
+    console.log("pre client.annotateImage, data =", JSON.stringify(data));
+    const res = await client.annotateImage(data);
+    console.log("post client.annotateImage, res =", res);
+    return JSON.parse(res);
   } catch (e) {
+    console.error("error", e);
     throw new functions.https.HttpsError("internal", e.message, e.details);
   }
 });

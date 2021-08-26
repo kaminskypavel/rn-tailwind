@@ -5,7 +5,7 @@
     "serve": "yarn build && firebase emulators:start --only functions",
     "shell": "yarn build && firebase functions:shell",
     "start": "yarn shell",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "firebase deploy --only functions:annotateImage",
     "logs": "firebase functions:log"
   },
   "engines": {
