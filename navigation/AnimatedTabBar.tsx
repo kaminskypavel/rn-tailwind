@@ -10,6 +10,8 @@ import CustomCamera from "../screens/CustomCamera";
 import BLEScreen from "../screens/BLEScreen";
 import Login from "../screens/Login";
 import { Feather } from "@expo/vector-icons";
+import TouchableView from "../screens/TouchableView";
+import { Entypo } from "@expo/vector-icons";
 
 const tabs: TabsConfig<BubbleTabBarItemConfig> = {
   Home: {
@@ -36,6 +38,22 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
     icon: {
       component: (props) => (
         <Feather {...props} name="camera" size={24} color="black" />
+      ),
+      activeColor: "rgba(17,148,170,1)",
+      inactiveColor: "rgba(0,0,0,1)",
+    },
+    background: {
+      activeColor: "rgba(207,235,239,1)",
+      inactiveColor: "rgba(207,235,239,0)",
+    },
+  },
+  Touchbale: {
+    labelStyle: {
+      color: "#1194AA",
+    },
+    icon: {
+      component: (props) => (
+        <Entypo {...props} name="fingerprint" size={24} color="black" />
       ),
       activeColor: "rgba(17,148,170,1)",
       inactiveColor: "rgba(0,0,0,1)",
@@ -90,6 +108,7 @@ export default function App() {
     >
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="Home" component={TabOneScreen} />
+      <Tab.Screen name="Touchbale" component={TouchableView} />
       <Tab.Screen name="Camera" component={CustomCamera} />
       <Tab.Screen name="BLE" component={BLEScreen} />
     </Tab.Navigator>
